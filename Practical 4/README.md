@@ -45,10 +45,16 @@ This practical exercise involved setting up a complete database solution for a T
 - Set owner to `postgres` user
 - Successfully initialized empty database
 
+![pgAdmin 4 - Database Creation](./image/pgadmin-database-creation.png)
+
 #### Step 3: User Setup
 - Created a dedicated database user `postgres` with password `dolkar86`
 - Configured login permissions for the new user
 - Set up database access privileges
+
+![pgAdmin 4 - User Role Creation](./image/pgadmin-user-role.png)
+
+![pgAdmin 4 - Schema Permissions](./image/pgadmin-permissions.png)
 
 ---
 
@@ -107,6 +113,8 @@ Successfully created 3 migration versions:
 - `20250325171138_init` - Initial schema
 - `20250331012626_migration_sql` - Schema updates
 - `20250416034921_add_storage_paths` - Storage paths addition
+
+![Prisma Migrations - Successful Execution](./image/prisma-migrations.png)
 
 #### Step 3: Authentication Middleware
 Implemented JWT verification in `src/middleware/auth.js`:
@@ -203,6 +211,8 @@ Run command:
 npm run seed
 ```
 
+![Seed Script Execution - Test Data Created](./image/seed-execution.png)
+
 ---
 
 ## Testing & Validation
@@ -232,6 +242,8 @@ Invoke-WebRequest -Uri "http://localhost:8000/api/users/register" `
 
 **Response:** User created successfully with hashed password ✅
 
+![User Registration - 201 Created Response](./image/user-registration-test.png)
+
 #### 2. User Login (JWT Token Generation)
 **Request:**
 ```powershell
@@ -246,6 +258,8 @@ Invoke-WebRequest -Uri "http://localhost:8000/api/users/login" `
 ```
 
 **Response:** JWT token returned successfully ✅
+
+![User Login - JWT Token Response](./image/user-login-jwt.png)
 
 #### 3. Protected Route - Create Video
 **Request:**
@@ -265,6 +279,20 @@ Invoke-WebRequest -Uri "http://localhost:8000/api/videos" `
 ```
 
 **Response:** Video created successfully with proper authorization ✅
+
+---
+
+## Frontend Integration
+
+The TikTok frontend is successfully integrated with the PostgreSQL backend and displaying live data from the database:
+
+![Frontend Integration - Live Data Display](./image/frontend-integration.png)
+
+**Features working:**
+- User profiles loaded from database
+- Video feed displaying seeded content
+- Navigation working (For You, Following, Find Users, Explore, LIVE)
+- User data persisting across page reloads
 
 ---
 
